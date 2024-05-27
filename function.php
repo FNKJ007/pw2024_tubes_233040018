@@ -22,32 +22,33 @@ function query($query){
     }
 function login($data)
 {
-   $conn = $koneksi();
+   $conn = koneksi();
    $username = htmlspecialchars($data ['username']);
    $password = htmlspecialchars($data['password']);
 
-   $user = $query("SELECT * FROM user WHERE username = '$username'");
+   $user = query("SELECT * FROM user WHERE username = '$username'")[1];
 
    if ($user){
-    if(password_verify($password,$user['password'])){
-        $_SESSION['login'] = true;
-        $_SESSION['id'] = $user['id'];
-        header("location: ../index.php");
-        exit()
-    }else{
+        if(password_verify($password,$user['password'])){
+         $_SESSION['login'] = true;
+            $_SESSION['id'] = $user['id'];
+            header("location: ../index.php");
+         exit();
+        }else{
         echo "<script>
                 alert('Password salah!');
                 document.location.href = 'login.php';
             </script>";
-    } else {
-        echo  "<script>
-        alert('Password salah!');
-        document.location.href = 'login.php';
-        </script>";
+        }
+    }else {
+            echo  "<script>
+            alert('Password salah!');
+            document.location.href = 'login.php';
+            </script>";
     }
 
-   }
 }
+
 function daftar($data)
 {
     $conn = koneksi();

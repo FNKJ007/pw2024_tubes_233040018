@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 08, 2024 at 01:11 PM
+-- Generation Time: May 27, 2024 at 01:03 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -24,6 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `admin_id` int NOT NULL,
+  `username` char(50) NOT NULL,
+  `password` char(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `username`, `password`) VALUES
+(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e'),
+(2, 'ferli', '$2y$10$FAviSzdGp.9FGmJK26/jM.t60iNSnIaCAHnKJmOPR2K/c8e6xiZw.'),
+(3, 'fiska', '$2y$10$R9uAK9gnq74keaLFt3JpMewo6E08UBxYaKiNDMqT8GZEVGaZCqKsm'),
+(4, 'ahmad', '$2y$10$tlSaJzpkuPPE2eSsKMcQNukRRP/cEYDPZY2qnme2SXmdRHqcbXpiq'),
+(5, 'sabda', '$2y$10$XXyn.7VtoqUtAbTgDAswyeSzqxKzsn3osPJhfxjCRklfZ14jxR8F2'),
+(6, 'ruly', '$2y$10$ZTWU0vat4T./Dc0HSGTthugqCpNIhRqyakwjSu4oKipBXBao0j77a');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `role`
 --
 
@@ -32,6 +56,14 @@ CREATE TABLE `role` (
   `nama_role` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`id_role`, `nama_role`) VALUES
+(1, 'admin'),
+(2, 'user');
+
 -- --------------------------------------------------------
 
 --
@@ -39,17 +71,31 @@ CREATE TABLE `role` (
 --
 
 CREATE TABLE `user` (
-  `id` int NOT NULL,
-  `gambar` varchar(255) NOT NULL,
+  `id_user` int NOT NULL,
   `username` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `id_role` int NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
+(1, 'raka', 'raka123'),
+(2, 'fiska', 'fiska123'),
+(3, 'kaka', 'kaka123'),
+(4, 'fiska123', 'fiska060320'),
+(5, 'asep', 'asep123');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `role`
@@ -61,18 +107,23 @@ ALTER TABLE `role`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_role` (`id_role`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Constraints for table `user`
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `admin_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
