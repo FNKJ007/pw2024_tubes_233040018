@@ -1,0 +1,209 @@
+body {
+  background-color: #1a0505;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.header {
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 50;
+  /* box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.014); */
+  position: fixed;
+  background-color: transparent;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  height: 50px;
+  align-items: center;
+  /* box-shadow: 0 2px 2px rgba(30, 30, 30, 0.3); */
+  z-index: 999;
+}
+nav .logo h1 {
+  font-weight: bolder;
+  font-family: 'Danfo', serif;
+  font-size: 3em;
+  letter-spacing: 4px;
+  color: white;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+}
+
+nav ul li a:hover {
+  color: rgb(235, 202, 131);
+}
+
+.home {
+  text-align: center;
+  margin-top: 100px;
+  position: relative;
+}
+
+.home img {
+  width: 100%;
+  height: 650px;
+  margin-top: -10px;
+}
+
+.home h1 {
+  font-family: 'Danfo', serif;
+  color: white;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4em;
+  font: bolder;
+}
+
+.home h4 {
+  font-family: 'Poppins', sans-serif;
+
+  color: white;
+  position: absolute;
+  top: 37%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+}
+.home ul li {
+  list-style: none;
+  color: white;
+  text-align: center;
+  top: 50%;
+  position: absolute;
+  gap: 2rem;
+}
+
+.steak {
+  display: flex;
+  justify-content: center;
+}
+
+.steak h3 {
+  color: white;
+  list-style: none;
+  font: bolder;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.5rem;
+  position: absolute;
+  font-family: 'Poppins', sans-serif;
+}
+
+.steak ul li {
+  color: white;
+  list-style: none;
+  text-align: center;
+  margin-top: 150px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 10px 0 5px 0px black;
+  cursor: pointer;
+}
+
+.steak li img {
+  display: grid;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 7px;
+}
+
+.contain {
+  display: grid;
+  justify-content: space-around;
+  margin-top: 30px;
+  flex-direction: row;
+  gap: 2rem;
+  border-radius: 30px;
+  grid-template-columns: repeat(3, 3fr);
+}
+
+.steak span {
+  color: black;
+
+  font-size: large;
+
+  font-family: 'Poppins', sans-serif;
+}
+
+.drink {
+  display: flex;
+  justify-content: center;
+}
+
+.drink h3 {
+  color: white;
+  list-style: none;
+  font: bolder;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.5rem;
+  position: absolute;
+  font-family: 'Poppins', sans-serif;
+}
+
+.drink ul li {
+  color: white;
+  list-style: none;
+  text-align: center;
+  margin-top: 150px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 10px 0 5px 0px black;
+  cursor: pointer;
+}
+
+.drink li img {
+  display: grid;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 7px;
+}
+
+.drink span {
+  color: black;
+
+  font-size: large;
+
+  font-family: 'Poppins', sans-serif;
+}
+
+.konten {
+  display: grid;
+  justify-content: space-between;
+  margin-top: 30px;
+  flex-direction: row;
+  gap: 2rem;
+  border-radius: 30px;
+  grid-template-columns: repeat(4, 3fr);
+}
+
+@media (max-width: 1000px) {
+  .steak {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .drink {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

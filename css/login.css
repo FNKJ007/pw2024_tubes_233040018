@@ -1,0 +1,31 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+}
+
+html {
+  background-color: #3d1212;
+}
+
+#app {
+  width: 600px;
+  padding: 50px;
+  border-radius: 5px;
+  background-color: rgba(26, 5, 5);
+  text-align: center;
+  align-items: center;
+  left: 470px;
+  margin-top: 15%;
+  position: absolute;
+}
+
+form .input {
+  font-family: 'Poppins', sans-serif;
+  color: black;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
