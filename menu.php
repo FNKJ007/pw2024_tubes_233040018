@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,12 +28,17 @@
           <li>
             <a href="#drink-3">Drink</a>
           </li>
+          
+          
           <li>
-            <a href="#"> Order</a>
+            <form action="" method="post" class="mt-3 mb-3">
+              <input type="text" name="keyword" size="40" autofocus
+              placeholder="Cari Kategori" autocomplete="off" id="keyword">
+             
+            </form>
           </li>
-          <li>
-            <a href="logout.php">Logout >></a>
-          </li>
+
+         
         </ul>
       </nav>
   </header>
@@ -46,6 +53,7 @@
     </ul>
   </div>
   <!-- akhir home -->
+  
   <!-- steak -->
   <div class="steak" id="steak-2">
     <h3>STEAK</h3>
@@ -120,5 +128,13 @@
     </ul>
   </div>
   <!-- akhir drink -->
+  <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__cooper">Copyright © <a href="https://github.com/FNKJ007" class="footer__link-bio" target="_blank">FNKJ007</a>, 2024. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
 </body>
+<script src="js/style.js"> </script>
 </html>

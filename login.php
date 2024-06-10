@@ -1,6 +1,6 @@
 <?php
 require('function.php');
-$users = query("SELECT * FROM user");
+$users = query("SELECT * FROM admin");
 // if (isset($_SESSION['login'])) {
 //     header("Location: login.php");
 //     exit;

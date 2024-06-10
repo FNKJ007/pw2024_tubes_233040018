@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 27, 2024 at 01:03 PM
+-- Generation Time: Jun 10, 2024 at 10:13 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -38,54 +38,54 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `username`, `password`) VALUES
-(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e'),
-(2, 'ferli', '$2y$10$FAviSzdGp.9FGmJK26/jM.t60iNSnIaCAHnKJmOPR2K/c8e6xiZw.'),
-(3, 'fiska', '$2y$10$R9uAK9gnq74keaLFt3JpMewo6E08UBxYaKiNDMqT8GZEVGaZCqKsm'),
-(4, 'ahmad', '$2y$10$tlSaJzpkuPPE2eSsKMcQNukRRP/cEYDPZY2qnme2SXmdRHqcbXpiq'),
-(5, 'sabda', '$2y$10$XXyn.7VtoqUtAbTgDAswyeSzqxKzsn3osPJhfxjCRklfZ14jxR8F2'),
-(6, 'ruly', '$2y$10$ZTWU0vat4T./Dc0HSGTthugqCpNIhRqyakwjSu4oKipBXBao0j77a');
+(1, 'admin123', 'admin123');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Table structure for table `kategori`
 --
 
-CREATE TABLE `role` (
-  `id_role` int NOT NULL,
-  `nama_role` varchar(100) NOT NULL
+CREATE TABLE `kategori` (
+  `id` int NOT NULL,
+  `menu` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `gambar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `role`
+-- Dumping data for table `kategori`
 --
 
-INSERT INTO `role` (`id_role`, `nama_role`) VALUES
-(1, 'admin'),
-(2, 'user');
+INSERT INTO `kategori` (`id`, `menu`, `gambar`) VALUES
+(1, 'Tenderlion', 'tenderloin.jpg'),
+(2, 'Sirloin', 'sirloin.jpeg'),
+(3, 'Rib Eye', 'rib eye.jpg'),
+(4, 'Chicken Cordon Blue', 'cordon blue.jpeg'),
+(5, 'Chicken Steak', 'chicken steak.jpeg'),
+(6, 'Grilled Tuna', 'griled tuna.jpeg'),
+(7, 'Mineral Water', 'mineral water.jpg'),
+(8, 'Ice LemonTea', 'lemon tea.jpg'),
+(9, 'MilkShake Strawberry', 'milkshake strawberry.jpg'),
+(10, 'MilkShake Chocolate', 'milkShake chocolate.jpg'),
+(11, 'MilkShake Vanilla', 'milkshake vanilla.jpeg'),
+(12, 'Orange Juice', 'orange juice.jpg'),
+(13, 'Avocado Juice', 'avocado.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `menu`
 --
 
-CREATE TABLE `user` (
-  `id_user` int NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+CREATE TABLE `menu` (
+  `menu_id` int NOT NULL,
+  `kategori_id` int NOT NULL,
+  `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `harga` double DEFAULT NULL,
+  `foto` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `detail` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `ketersediaan_stok` enum('Habis','Tersedia') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT 'Tersedia'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
-(1, 'raka', 'raka123'),
-(2, 'fiska', 'fiska123'),
-(3, 'kaka', 'kaka123'),
-(4, 'fiska123', 'fiska060320'),
-(5, 'asep', 'asep123');
 
 --
 -- Indexes for dumped tables
@@ -98,16 +98,10 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
--- Indexes for table `role`
+-- Indexes for table `kategori`
 --
-ALTER TABLE `role`
-  ADD PRIMARY KEY (`id_role`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -117,13 +111,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `admin_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table `kategori`
 --
-ALTER TABLE `user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `kategori`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
