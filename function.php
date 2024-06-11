@@ -1,10 +1,12 @@
 <?php
 function koneksi() {
-    $conn = mysqli_connect('localhost', 'root', '', 'pw2024_tubes_233040018');
-    if (!$conn) {
-        die("Koneksi gagal: " . mysqli_connect_error());
-    }
-    return $conn;
+    
+        $conn = mysqli_connect('localhost', 'root', '', 'pw2024_tubes_233040018');
+        if (!$conn) {
+            die("Koneksi gagal: " . mysqli_connect_error());
+        }
+        return $conn;
+    
 }
 
 function query($query){
@@ -22,7 +24,7 @@ function login($data) {
     $username = htmlspecialchars($data['username']);
     $password = htmlspecialchars($data['password']);
 
-    $user = query("SELECT * FROM admin WHERE username = '$username'")[0];
+    $user = query("SELECT * FROM user WHERE username = '$username'")[0];
 
     if ($user) {
         if ($password == $user['password']) {
@@ -50,7 +52,7 @@ function daftar($data) {
     $password = htmlspecialchars($data['password']);
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = "INSERT INTO admin (username, password) VALUES ('$username', '$password')";
+    $query = "INSERT INTO user (username, password) VALUES ('$username', '$password')";
     mysqli_query($conn, $query) or die(mysqli_error($conn));
 
     return mysqli_affected_rows($conn);
@@ -58,7 +60,7 @@ function daftar($data) {
 
 function tambah($data) {
     $conn = koneksi();
-    $menu = htmlspecialchars($data['menu']);
+    $menu = htmlspecialchars($data['menu']);                        
    
 
     $query = "INSERT INTO kategori (menu) VALUES ('$menu')";
